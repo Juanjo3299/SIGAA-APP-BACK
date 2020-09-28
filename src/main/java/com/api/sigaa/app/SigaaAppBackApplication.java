@@ -1,13 +1,24 @@
 package com.api.sigaa.app;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class SigaaAppBackApplication {
+public class SigaaAppBackApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SigaaAppBackApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SigaaAppBackApplication.class, args);
+    }
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Override
+    public void run(String... args) throws Exception {
+    }
 
 }

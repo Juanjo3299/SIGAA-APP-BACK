@@ -1,5 +1,8 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
@@ -42,27 +45,49 @@ public class SigaaCatAlumno {
     private String regular;
     private String folioF1;
     private String becaOpor;
+    @JsonIgnore
     private List<SigaaAlumnoDetServicios> sigaaAlumnoDetServiciosByMatricula;
+    @JsonIgnore
     private List<SigaaAlumnoEvento> sigaaAlumnoEventosByMatricula;
+    @JsonIgnore
     private List<SigaaAlumnoPreguntas> sigaaAlumnoPreguntasByMatricula;
+    @JsonIgnore
     private List<SigaaBajas> sigaaBajasByMatricula;
+    @JsonIgnore
     private List<SigaaCargaAcademicaAlumno> sigaaCargaAcademicaAlumnosByMatricula;
+    @JsonIgnore
     private List<SigaaCargaTemporal> sigaaCargaTemporalsByMatricula;
+    @JsonIgnore
     private SigaaCatEstatus sigaaCatEstatusByIdEstatus;
+    @JsonIgnore
     private SigaaCatGrupo sigaaCatGrupoByIdGrupo;
+    @JsonIgnore
     private SigaaHistoacademico sigaaHistoacademicoByIdHistorial;
+    @JsonIgnore
     private Usuario usuarioByIdUsuario;
+    @JsonIgnore
     private SigaaCohorteGenerado sigaaCohorteGeneradoByIdCohorte;
+    @JsonIgnore
     private SigaaCatDiscapacidad sigaaCatDiscapacidadByIdCatdiscapacidad;
+    @JsonIgnore
     private SigaaCatComunidad sigaaCatComunidadByIdComunidad;
+    @JsonIgnore
     private List<SigaaCatPagosInternos> sigaaCatPagosInternosByMatricula;
+    @JsonIgnore
     private List<SigaaCatTituloElectronico> sigaaCatTituloElectronicosByMatricula;
+    @JsonIgnore
     private List<SigaaDatosEstancias> sigaaDatosEstanciasByMatricula;
+    @JsonIgnore
     private List<SigaaDetAlumnoExento> sigaaDetAlumnoExentosByMatricula;
+    @JsonIgnore
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByMatricula;
+    @JsonIgnore
     private List<SigaaDetDatosfamiliares> sigaaDetDatosfamiliaresByMatricula;
+    @JsonIgnore
     private List<SigaaDetPagosAlumno> sigaaDetPagosAlumnosByMatricula;
+    @JsonIgnore
     private List<SigaaDocumentosTitulacion> sigaaDocumentosTitulacionsByMatricula;
+    @JsonIgnore
     private List<SigaaTutorias> sigaaTutoriasByMatricula;
 
     @Id
@@ -546,6 +571,7 @@ public class SigaaCatAlumno {
     }
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "ID_COHORTE", referencedColumnName = "ID_COHORTE", nullable = false, insertable = false, updatable = false)
     public SigaaCohorteGenerado getSigaaCohorteGeneradoByIdCohorte() {
         return sigaaCohorteGeneradoByIdCohorte;

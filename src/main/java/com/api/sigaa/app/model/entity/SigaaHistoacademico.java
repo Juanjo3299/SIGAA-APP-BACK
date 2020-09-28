@@ -1,5 +1,7 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
@@ -195,6 +197,7 @@ public class SigaaHistoacademico {
     }
 
     @OneToMany(mappedBy = "sigaaHistoacademicoByIdHistorial")
+    @JsonBackReference
     public List<SigaaCatAlumno> getSigaaCatAlumnosByIdHistorial() {
         return sigaaCatAlumnosByIdHistorial;
     }
