@@ -1,5 +1,9 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
@@ -16,9 +20,13 @@ public class SigaaDetCalificaciones {
     private int matricula;
     private Integer faltas;
     private String estatus;
+    @JsonManagedReference
     private SigaaCatAsignatura sigaaCatAsignaturaByIdAsignatura;
+    @JsonManagedReference
     private SigaaCatTipocalificaciones sigaaCatTipocalificacionesByIdTipocalif;
+    @JsonIgnore
     private SigaaCatGrupo sigaaCatGrupoByIdGrupo;
+    @JsonBackReference
     private SigaaCatAlumno sigaaCatAlumnoByMatricula;
 
     @Id

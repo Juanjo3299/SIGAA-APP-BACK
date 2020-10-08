@@ -1,5 +1,8 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -20,12 +23,19 @@ public class SigaaCatAsignatura {
     private Integer limiteFaltas;
     private int idPlanestudio;
     private String cargaAlumno;
+    @JsonIgnore
     private List<SigaaCargaAcademicaAlumno> sigaaCargaAcademicaAlumnosByIdAsignatura;
+    @JsonIgnore
     private List<SigaaCargaAcademicaDocente> sigaaCargaAcademicaDocentesByIdAsignatura;
+    @JsonIgnore
     private List<SigaaCargaTemporal> sigaaCargaTemporalsByIdAsignatura;
+    @JsonIgnore
     private List<SigaaCarreraAsignatura> sigaaCarreraAsignaturasByIdAsignatura;
+    @JsonIgnore
     private SigaaCatPlanestudio sigaaCatPlanestudioByIdPlanestudio;
+    @JsonBackReference
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByIdAsignatura;
+    @JsonIgnore
     private List<SigaaGrupoAsignatura> sigaaGrupoAsignaturasByIdAsignatura;
 
     @Id

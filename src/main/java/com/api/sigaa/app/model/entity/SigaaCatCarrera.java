@@ -1,5 +1,8 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -15,20 +18,35 @@ public class SigaaCatCarrera {
     private Integer idModalidad;
     private String claveDgp;
     private String nomProgacademicoDgp;
+    @JsonIgnore
     private List<ConvocatoriaCarrera> convocatoriaCarrerasByIdCarrera;
+    @JsonIgnore
     private List<SigaaCarreraAsignatura> sigaaCarreraAsignaturasByIdCarrera;
+    @JsonIgnore
     private List<SigaaCarreraAsignaturaCuatricero> sigaaCarreraAsignaturaCuatricerosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatAlumnoModificaso> sigaaCatAlumnoModificasosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatAsesoresAcademicos> sigaaCatAsesoresAcademicosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatAspirante> sigaaCatAspirantesByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatAspirante> sigaaCatAspirantesByIdCarrera_0;
+    @JsonIgnore
     private List<SigaaCatAspirantePosgrado> sigaaCatAspirantePosgradosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatAspirantePosgrado> sigaaCatAspirantePosgradosByIdCarrera_0;
+    @JsonIgnore
     private SigaaCatModalidad sigaaCatModalidadByIdModalidad;
+    @JsonIgnore
     private List<SigaaCatCoordinadorIngenieria> sigaaCatCoordinadorIngenieriasByIdCarrera;
+    @JsonBackReference
     private List<SigaaCatGrupo> sigaaCatGruposByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatGrupoCuatrimestreCero> sigaaCatGrupoCuatrimestreCerosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCatPlanestudio> sigaaCatPlanestudiosByIdCarrera;
+    @JsonIgnore
     private List<SigaaCohorteGenerado> sigaaCohorteGeneradosByIdCarrera;
 
     @Id

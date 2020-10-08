@@ -1,5 +1,8 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -19,18 +22,31 @@ public class SigaaCatGrupo {
     private Integer cuatrimestre;
     private String clave;
     private Integer idDocente;
+    @JsonIgnore
     private List<SigaaCargaAcademicaAlumno> sigaaCargaAcademicaAlumnosByIdGrupo;
+    @JsonIgnore
     private List<SigaaCargaAcademicaDocente> sigaaCargaAcademicaDocentesByIdGrupo;
+    @JsonIgnore
     private List<SigaaCargaTemporal> sigaaCargaTemporalsByIdGrupo;
+    @JsonIgnore
     private List<SigaaCatAlumno> sigaaCatAlumnosByIdGrupo;
+    @JsonIgnore
     private List<SigaaCatAlumnoModificaso> sigaaCatAlumnoModificasosByIdGrupo;
+    @JsonManagedReference
     private SigaaCatCarrera sigaaCatCarreraByIdCarrera;
+    @JsonIgnore
     private SigaaCatGeneracion sigaaCatGeneracionByIdGeneracion;
+    @JsonIgnore
     private SigaaCatPeriodo sigaaCatPeriodoByIdPeriodo;
+    @JsonIgnore
     private SigaaCatTipogrupo sigaaCatTipogrupoByIdTipogrupo;
+    @JsonIgnore
     private SigaaCatDocente sigaaCatDocenteByIdDocente;
+    @JsonIgnore
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByIdGrupo;
+    @JsonIgnore
     private List<SigaaExtraordinario> sigaaExtraordinariosByIdGrupo;
+    @JsonIgnore
     private List<SigaaGrupoAsignatura> sigaaGrupoAsignaturasByIdGrupo;
 
     @Id

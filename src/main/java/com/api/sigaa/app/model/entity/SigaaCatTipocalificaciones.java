@@ -1,5 +1,7 @@
 package com.api.sigaa.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -10,6 +12,7 @@ public class SigaaCatTipocalificaciones {
     private int idTipocalif;
     private String descripcion;
     private String estatus;
+    @JsonBackReference
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByIdTipocalif;
 
     @Id

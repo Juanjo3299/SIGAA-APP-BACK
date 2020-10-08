@@ -59,7 +59,7 @@ public class SigaaCatAlumno {
     private List<SigaaCargaTemporal> sigaaCargaTemporalsByMatricula;
     @JsonIgnore
     private SigaaCatEstatus sigaaCatEstatusByIdEstatus;
-    @JsonIgnore
+    @JsonManagedReference
     private SigaaCatGrupo sigaaCatGrupoByIdGrupo;
     @JsonIgnore
     private SigaaHistoacademico sigaaHistoacademicoByIdHistorial;
@@ -79,7 +79,7 @@ public class SigaaCatAlumno {
     private List<SigaaDatosEstancias> sigaaDatosEstanciasByMatricula;
     @JsonIgnore
     private List<SigaaDetAlumnoExento> sigaaDetAlumnoExentosByMatricula;
-    @JsonIgnore
+    @JsonManagedReference
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByMatricula;
     @JsonIgnore
     private List<SigaaDetDatosfamiliares> sigaaDetDatosfamiliaresByMatricula;
