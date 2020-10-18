@@ -19,7 +19,7 @@ public class SigaaAppBackApplication implements CommandLineRunner {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/*/*").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/oauth/token").allowedOrigins("http://localhost:4200");
             }
         };
     }
