@@ -34,7 +34,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost", "http://localhost:8100"));
+		config.setAllowedOrigins(Arrays.asList("*"));
 		config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		config.setAllowCredentials(true);
 		config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
@@ -56,7 +56,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/*/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/*/*").allowedOrigins("*");
 			}
 		};
 	}

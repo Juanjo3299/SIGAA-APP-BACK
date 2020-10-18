@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/api")
 public class SigaaCatAlumnoController {
 
@@ -34,7 +34,6 @@ public class SigaaCatAlumnoController {
     int numeroMaterias = 0;
 
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/alumno/{matricula}")
     public ResponseEntity<?> alumno(@PathVariable Integer matricula) {
         SigaaCatAlumno alumno = alumnoService.findByMatricula(matricula);
