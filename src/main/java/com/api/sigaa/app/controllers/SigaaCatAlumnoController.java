@@ -1,11 +1,11 @@
 package com.api.sigaa.app.controllers;
 
 import com.api.sigaa.app.controllers.sigaa.controlador.Fechas;
+import com.api.sigaa.app.model.entity.SigaaCatAlumno;
+import com.api.sigaa.app.model.entity.SigaaDetCalificaciones;
 import com.api.sigaa.app.model.historial.HistorialCorte;
 import com.api.sigaa.app.model.historial.HistorialCuatrimestre;
 import com.api.sigaa.app.model.historial.HistorialModelo;
-import com.api.sigaa.app.model.entity.SigaaCatAlumno;
-import com.api.sigaa.app.model.entity.SigaaDetCalificaciones;
 import com.api.sigaa.app.model.iservice.ISigaaCatAlumnoService;
 import com.api.sigaa.app.model.iservice.ISigaaDetCalificacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +34,7 @@ public class SigaaCatAlumnoController {
     int numeroMaterias = 0;
 
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/alumno/{matricula}")
     public ResponseEntity<?> alumno(@PathVariable Integer matricula) {
         SigaaCatAlumno alumno = alumnoService.findByMatricula(matricula);
