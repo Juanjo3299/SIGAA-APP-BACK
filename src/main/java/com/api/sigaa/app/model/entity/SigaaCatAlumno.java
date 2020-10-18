@@ -79,7 +79,7 @@ public class SigaaCatAlumno {
     private List<SigaaDatosEstancias> sigaaDatosEstanciasByMatricula;
     @JsonIgnore
     private List<SigaaDetAlumnoExento> sigaaDetAlumnoExentosByMatricula;
-    @JsonManagedReference
+    @JsonIgnore
     private List<SigaaDetCalificaciones> sigaaDetCalificacionesByMatricula;
     @JsonIgnore
     private List<SigaaDetDatosfamiliares> sigaaDetDatosfamiliaresByMatricula;
