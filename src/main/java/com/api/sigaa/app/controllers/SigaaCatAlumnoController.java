@@ -20,7 +20,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api")
+@RequestMapping("/api/alumno")
 public class SigaaCatAlumnoController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class SigaaCatAlumnoController {
     int numeroMaterias = 0;
 
 
-    @GetMapping("/alumno/{matricula}")
+    @GetMapping("/{matricula}")
     public ResponseEntity<?> alumno(@PathVariable Integer matricula) {
         SigaaCatAlumno alumno = alumnoService.findByMatricula(matricula);
         List<HistorialModelo> calificaciones = generarHistorialAcademico(alumno.getSigaaDetCalificacionesByMatricula());
