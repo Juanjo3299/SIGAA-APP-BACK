@@ -1,18 +1,13 @@
 package com.api.sigaa.app;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SigaaAppBackApplication implements CommandLineRunner {
+public class SigaaAppBackApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SigaaAppBackApplication.class, args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
     }
 
 }
