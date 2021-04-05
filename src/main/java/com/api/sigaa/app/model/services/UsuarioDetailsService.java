@@ -1,16 +1,11 @@
 package com.api.sigaa.app.model.services;
 
-import com.api.sigaa.app.model.dao.IUsuarioDao;
 import com.api.sigaa.app.model.entity.CatRoles;
 import com.api.sigaa.app.model.entity.Usuario;
 import com.api.sigaa.app.model.iservice.IUsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,13 +37,13 @@ public class UsuarioDetailsService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = usuarioService.findByUsuario(username);
-        String password = usuario.getContraseña();
-        usuario.setContraseña(passwordEncoder().encode(password));
 
         if (usuario == null) {
             logger.error("Error en el login: no existe el usuario '" + username + "' en el sistema!");
             throw new UsernameNotFoundException("Error en el login: no existe el usuario '" + username + "' en el sistema!");
         }
+        String password = usuario.getContraseña();
+        usuario.setContraseña(passwordEncoder().encode(password));
 
         boolean estatus = false;
         List<CatRoles> roles = new ArrayList<>();
